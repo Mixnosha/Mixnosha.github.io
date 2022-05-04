@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from random import randint
 from rockPaper.forms import RegisterUserForms, LoginUserForm
+from rockPaper.models import UserGame
 
 
 class RegisterUser(CreateView):
@@ -40,10 +41,20 @@ def rock(request):
         'title': 'Rock'
     }
     if request.POST.get('connect'):
-        print(request.POST['connect_loby'])
+        username = request.user.get_username()
+        room_id = request.POST['connect_loby']
+        UserGame.objects.create(username=username, room_id=room_id)
+        context = {
+
+        }
+        return render(request, '', context=context)
     elif request.POST.get('create_loby'):
         number_lobbi = randint(100, 999)
         context['number_lobbi'] = number_lobbi
+        username = request.user.get_username()
+        room_id = number_lobbi
+        UserGame.objects.create(username=username, room_id=room_id)
+        return render(request, '', context=context)
     return render(request, 'rockPaper/rock.html', context=context)
 
 
