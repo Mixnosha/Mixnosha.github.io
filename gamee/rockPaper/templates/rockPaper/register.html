@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+
+    {% if request.user.is_authenticated %}
+    <p>Hello {{user.username}}</p>
+    <a href="{% url 'logout' %}"><button type="button">Logout</button></a>
+    <a href="{% url 'rock' %}"><button type="button">Play Game</button></a>
+
+    {% else %}
+    <h1>Register</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for f in form %}
+        <p><label class="" >{{f.label}}: </label>{{f}}</p>
+        <div class="">{{ f.errors }}</div>
+
+        {% endfor %}
+        <button type="submit">Register</button>
+        <a href="login"><button type="button">Log-in</button></a>
+    </form>
+    {% endif %}
+</body>
+</html>

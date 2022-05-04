@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h3>{{user.username}}</h3>
+
+         <form action="{% url 'rock' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" name="create_loby" value="Create loby">
+        </form>
+        <form action="{% url 'rock' %}" method="POST">
+            {% csrf_token %}
+            <input name="connect_loby">
+            <input type="submit" name="connect" value="connect">
+        </form>
+    {% if number_lobbi %}
+        <p>Send friend number</p>
+        <p>Number: {{number_lobbi}}</p>
+    {% endif %}
+</body>
+</html>
