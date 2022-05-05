@@ -1,0 +1,29 @@
+body {
+    background: #FFF492;
+}
+
+.reg{
+    display: block;
+    text-align: center;
+}
+.register_name
+{
+    font-size: 60px;
+    font-family: 'Heebo', sans-serif;
+    color: #8D3EEA;
+    text-align: center;
+}
+
+.username{
+    display: block;
+    text-align: center;
+}
+
+.buton{
+    display: block;
+    text-align: center;
+}
+
+.all{
+    justify-content: left;
+}

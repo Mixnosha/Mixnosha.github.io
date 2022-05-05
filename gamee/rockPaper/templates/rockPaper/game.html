@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+        <h3>Вы: {{user.username}}</h3>
+        <h3>Ваш противник: {{enemy}}</h3>
+        <h4>Ваша комната: {{room_id}}</h4>
+        {% if rand %}
+        <form action="{% url 'game' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="game_start" value="Рандомное число">
+        </form>
+        {% endif %}
+        {% if el %}
+                <h2>Ваше число: {{el}}</h2>
+        {% endif %}
+        {% if winner %}
+        <h2>Число противника: {{enemy_el}}</h2>
+        <h2>Победитель: {{winner}}</h2>
+        {% endif %}
+        {% if enemy_no_change %}
+            <p>Противник не выбрал число</p>
+        {% endif %}
+        <form action="{% url 'game' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="game_up" value="Посмотреть результаты">
+        </form>
+        <form action="{% url 'game' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="restart" value="Новая игра">
+        </form>
+        <form action="{% url 'game' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="main_menu" value="главное меню">
+        </form>
+
+</body>
+</html>

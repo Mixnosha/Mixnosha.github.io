@@ -1,8 +1,15 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  type="text/css" href="{% static 'rockPaper/reg.css' %}">
+
 </head>
 <body>
 
@@ -12,17 +19,26 @@
     <a href="{% url 'rock' %}"><button type="button">Play Game</button></a>
 
     {% else %}
-    <h1>Register</h1>
-    <form method="post">
+    <div class="reg">
+        <label class="register_name">Register</label>
+    </div>
+    <form method="POST">
         {% csrf_token %}
-        {% for f in form %}
-        <p><label class="" >{{f.label}}: </label>{{f}}</p>
-        <div class="">{{ f.errors }}</div>
-
-        {% endfor %}
+        <div class="username">
+            <input type="text" name="username" class="form-input" autofocus required id="id_username" placeholder="usernamme"><br>
+            <br>
+            <input type="password" name="password1" class="form-input" required id="id_password1" placeholder="password"><br>
+            <br>
+            <input type="password" name="password2" class="form-input" required id="id_password2" placeholder="repeat password"><br>
+            <br>
+        </div>
+        <div class="buton">
         <button type="submit">Register</button>
         <a href="login"><button type="button">Log-in</button></a>
+        </div>
     </form>
+        <img src="{% static 'images/123456.png' %}" width="35%" align="right">
+
     {% endif %}
 </body>
 </html>
