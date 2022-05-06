@@ -33,6 +33,7 @@ class LoginUser(LoginView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Login'
+        print(context['form'])
         return context
 
     def get_success_url(self):
@@ -79,7 +80,7 @@ def rock(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('login')
+    return redirect('register')
 
 
 def game(request):

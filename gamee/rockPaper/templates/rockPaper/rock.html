@@ -1,28 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
+        <link rel="stylesheet"  type="text/css" href="{% static 'rockPaper/rock.css' %}">
+
 </head>
 <body>
-    <h3>{{user.username}}</h3>
 
-         <form action="{% url 'rock' %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" name="create_loby" value="Create loby">
-        </form>
-        <form action="{% url 'rock' %}" method="POST">
-            {% csrf_token %}
-            <input name="connect_loby">
-            <input type="submit" name="connect" value="connect">
-        </form>
-    {% if number_lobbi %}
-        <p>Send friend number</p>
-        <p>Number: {{number_lobbi}}</p>
-    {% endif %}
+<!--         <form action="{% url 'rock' %}" method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            <input type="submit" name="create_loby" value="Create loby">-->
+<!--        </form>-->
+<!--        <form action="{% url 'rock' %}" method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            <input name="connect_loby">-->
+<!--            <input type="submit" name="connect" value="connect">-->
+<!--        </form>-->
+
+     <form class="decor" method="post" action="{% url 'rock' %}">
+    {% csrf_token %}
+<div class="form-left-decoration"></div>
+<div class="form-right-decoration"></div>
+<div class="circle"></div>
+<div class="form-inner">
+<h3>{{user.username}}</h3>
+    <input name="connect_loby" placeholder="Number Loby">
     {% if error_room %}
-        <p>Такой комнаты не существует</p>
+        <h4>Loby not found</h4>
     {% endif %}
+    <input type="submit" name="connect" value="Connect">
+    <input type="submit" value="Create Loby" name="create_loby">
+
+</div>
+</form>
+
+
 
 </body>
 </html>

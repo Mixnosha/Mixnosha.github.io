@@ -11,9 +11,17 @@
 <body>
 
     {% if request.user.is_authenticated %}
-    <p>Hello {{user.username}}</p>
-    <a href="{% url 'logout' %}"><button type="button">Logout</button></a>
-    <a href="{% url 'rock' %}"><button type="button">Play Game</button></a>
+    <form class="decor" method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+<div class="form-left-decoration"></div>
+<div class="form-right-decoration"></div>
+<div class="circle"></div>
+<div class="form-inner">
+<h4>Hello {{user.username}}! Welcome to plex!</h4>
+    <input type="submit" value="Log-Out">
+    <a href="{% url 'rock' %}"><input type="button" value="Play Game"></a>
+</div>
+</form>
 
     {% else %}
 <form class="decor" method="post">
@@ -30,8 +38,7 @@
     <a href="{% url 'login' %}"><input type="button" value="Log-in"></a>
 </div>
 </form>
-        <img src="{% static 'images/123456.png' %}" width="35%" align="right">
-
     {% endif %}
+        <img src="{% static 'images/123456.png' %}" width="35%" align="right">
 </body>
 </html>

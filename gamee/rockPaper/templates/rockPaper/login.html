@@ -1,20 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
+    <link rel="stylesheet"  type="text/css" href="{% static 'rockPaper/login.css' %}">
 </head>
 <body>
-        <h1>Log-in</h1>
-        <form method="post">
-            {% csrf_token %}
-            <div>{{form.non_field_errors}}</div>
-            {% for f in form %}
-                <p><label class="" >{{f.label}}: </label>{{f}}</p>
-                <div>{{ f.errors }}</div>
-            {% endfor %}
-            <button type="submit">Login</button>
-        </form>
-        <a href="{% url 'register' %}"><button>Register</button></a>
+        <form class="decor" method="post">
+    {% csrf_token %}
+            <div class="form-left-decoration"></div>
+<div class="form-right-decoration"></div>
+<div class="circle"></div>
+<div class="form-inner">
+<h3>Log-in</h3>
+     <div>{{form.non_field_errors}}</div>
+<input type="text" placeholder="Username" name="username" maxlength="150">
+<input type="password" placeholder="Password" name="password">
+<input type="submit" value="Log-in">
+</div>
+</form>
+<img src="{% static 'images/123456.png' %}" width="35%" align="right">
+
 </body>
 </html>

@@ -98,3 +98,12 @@ a {
    font-size: 24px;
    color: #707981;
 }
+
+.form-inner h4 {
+   margin-top: 9px;
+   margin-left: 15px;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 500;
+   font-size: 16px;
+   color: rgba(255, 62, 62, 0.86);
+}
