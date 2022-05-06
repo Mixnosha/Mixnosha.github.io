@@ -5,9 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet"  type="text/css" href="{% static 'rockPaper/reg.css' %}">
 
 </head>
@@ -19,24 +16,20 @@
     <a href="{% url 'rock' %}"><button type="button">Play Game</button></a>
 
     {% else %}
-    <div class="reg">
-        <label class="register_name">Register</label>
-    </div>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="username">
-            <input type="text" name="username" class="form-input" autofocus required id="id_username" placeholder="usernamme"><br>
-            <br>
-            <input type="password" name="password1" class="form-input" required id="id_password1" placeholder="password"><br>
-            <br>
-            <input type="password" name="password2" class="form-input" required id="id_password2" placeholder="repeat password"><br>
-            <br>
-        </div>
-        <div class="buton">
-        <button type="submit">Register</button>
-        <a href="login"><button type="button">Log-in</button></a>
-        </div>
-    </form>
+<form class="decor" method="post">
+    {% csrf_token %}
+<div class="form-left-decoration"></div>
+<div class="form-right-decoration"></div>
+<div class="circle"></div>
+<div class="form-inner">
+<h3>Register</h3>
+<input type="text" placeholder="Username" name="username">
+<input type="password" placeholder="Password" name="password1">
+    <input type="password" placeholder="Repeat password" name="password2">
+<input type="submit" value="Register">
+    <a href="{% url 'login' %}"><input type="button" value="Log-in"></a>
+</div>
+</form>
         <img src="{% static 'images/123456.png' %}" width="35%" align="right">
 
     {% endif %}
