@@ -33,7 +33,6 @@ class LoginUser(LoginView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Login'
-        print(context['form'])
         return context
 
     def get_success_url(self):
@@ -47,7 +46,6 @@ def rock(request):
     if request.POST.get('connect'):
         username = request.user.get_username()
         room_id = request.POST['connect_loby']
-        print(room_id)
         try:
             if UserGame.objects.get(room_id=room_id):
                 try:

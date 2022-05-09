@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>{{title}}</title>
     <link rel="stylesheet"  type="text/css" href="{% static 'rockPaper/reg.css' %}">
-
 </head>
 <body>
 
@@ -35,7 +34,7 @@
 <input type="password" placeholder="Password" name="password1">
     <input type="password" placeholder="Repeat password" name="password2">
 <input type="submit" value="Register">
-    <a href="{% url 'login' %}"><input type="button" value="Log-in"></a>
+    <a href="{% url 'login' %}" class="log">Log-in</a>
 </div>
 </form>
     {% endif %}
