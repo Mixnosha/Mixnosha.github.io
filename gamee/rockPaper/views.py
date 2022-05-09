@@ -124,16 +124,25 @@ def game(request):
             context['el'] = user.select_el
             context['rand'] = False
     if request.POST.get('restart'):
-        context = {
-            'title': 'game',
-            'room_id': user.room_id,
-            'enemy': enemy.username,
-            'rand': True
-        }
-        user.select_el = None
-        enemy.select_el = None
-        user.save()
-        enemy.save()
+        try:
+            context = {
+                'title': 'game',
+                'room_id': user.room_id,
+                'enemy': enemy.username,
+                'rand': True
+            }
+            user.select_el = None
+            enemy.select_el = None
+            user.save()
+            enemy.save()
+        except Exception:
+            context = {
+                'title': 'game',
+                'room_id': user.room_id,
+                'rand': True
+            }
+            user.select_el = None
+            user.save()
     if request.POST.get('main_menu'):
         user.room_id = None
         user.select_el = None

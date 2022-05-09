@@ -1,41 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
+    <link rel="stylesheet"  type="text/css" href="{% static 'rockPaper/game.css' %}">
+
 </head>
 <body>
-        <h3>Вы: {{user.username}}</h3>
-        <h3>Ваш противник: {{enemy}}</h3>
-        <h4>Ваша комната: {{room_id}}</h4>
-        {% if rand %}
-        <form action="{% url 'game' %}" method="post">
-            {% csrf_token %}
-            <input type="submit" name="game_start" value="Рандомное число">
-        </form>
-        {% endif %}
-        {% if el %}
-                <h2>Ваше число: {{el}}</h2>
-        {% endif %}
-        {% if winner %}
-        <h2>Число противника: {{enemy_el}}</h2>
-        <h2>Победитель: {{winner}}</h2>
-        {% endif %}
-        {% if enemy_no_change %}
-            <p>Противник не выбрал число</p>
-        {% endif %}
-        <form action="{% url 'game' %}" method="post">
-            {% csrf_token %}
-            <input type="submit" name="game_up" value="Посмотреть результаты">
-        </form>
-        <form action="{% url 'game' %}" method="post">
-            {% csrf_token %}
-            <input type="submit" name="restart" value="Новая игра">
-        </form>
-        <form action="{% url 'game' %}" method="post">
-            {% csrf_token %}
-            <input type="submit" name="main_menu" value="главное меню">
-        </form>
 
+<div>
+<form  action="{% url 'game' %}" class="decor" method="post">
+    {% csrf_token %}
+<div class="form-left-decoration"></div>
+<div class="form-right-decoration"></div>
+<div class="circle"></div>
+<div class="form-inner">
+<h3>You: {{user.username}}</h3>
+    <h3>Enemy: {{enemy}}</h3>
+     <h4>Your Room: {{room_id}}</h4>
+     {% if rand %}
+                <input type="submit" name="game_start" value="Random number">
+     {% endif %}
+    {% if el %}
+                <h3>Your number: {{el}}</h3>
+    {% endif %}
+     {% if winner %}
+        <h3>Enemy number: {{enemy_el}}</h3>
+        <h3>Winner: {{winner}}</h3>
+        {% endif %}
+     {% if enemy_no_change %}
+            <p>The opponent did not choose a number</p>
+        {% endif %}
+                <input type="submit" name="game_up" value="View results">
+                <input type="submit" name="restart" value="New Game">
+                <input type="submit" name="main_menu" value="Main Menu">
+</div>
+</form>
 </body>
 </html>
