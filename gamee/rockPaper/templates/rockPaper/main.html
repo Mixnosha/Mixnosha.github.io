@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Number</title>
+    <link rel="stylesheet"  type="text/css" href="{% static 'rockPaper/main.css' %}">
+</head>
+<body>
+    <h3 class="RandomGame">Random numbers Game</h3>
+    <div>
+        <h5>
+            Play with a friend! <br>
+            Easy dispute resolution
+        </h5>
+    </div>
+    <form class="decor" method="post">
+    {% csrf_token %}
+<div class="form-left-decoration"></div>
+<div class="form-right-decoration"></div>
+<div class="circle"></div>
+<div class="form-inner">
+    <a href="/"><input type="button"  class="but" value="Play Game"></a>
+</div>
+</form>
+     <img src="{% static 'images/123456.png' %}" width="35%" align="right">
+
+</body>
+</html>

@@ -149,3 +149,7 @@ def game(request):
         user.save()
         return redirect('/')
     return render(request, 'rockPaper/game.html', context=context)
+
+
+def main(request):
+    return render(request, 'rockPaper/main.html', {})

@@ -20,6 +20,7 @@ from rockPaper.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('main', main ,name='main'),
     path('', RegisterUser.as_view(), name='register'),
     path('login', LoginUser.as_view(), name='login'),
     path('logout', logout_user, name='logout'),
