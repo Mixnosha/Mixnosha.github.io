@@ -5,19 +5,10 @@
     <meta charset="UTF-8">
     <title>{{title}}</title>
         <link rel="stylesheet"  type="text/css" href="{% static 'rockPaper/rock.css' %}">
+             <link rel="shortcut icon" href="{%  static 'images/123456.png' %}" type="image/png">
 
 </head>
 <body>
-
-<!--         <form action="{% url 'rock' %}" method="POST">-->
-<!--            {% csrf_token %}-->
-<!--            <input type="submit" name="create_loby" value="Create loby">-->
-<!--        </form>-->
-<!--        <form action="{% url 'rock' %}" method="POST">-->
-<!--            {% csrf_token %}-->
-<!--            <input name="connect_loby">-->
-<!--            <input type="submit" name="connect" value="connect">-->
-<!--        </form>-->
 
      <form class="decor" method="post" action="{% url 'rock' %}">
     {% csrf_token %}
