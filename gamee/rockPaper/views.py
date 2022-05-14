@@ -1,9 +1,6 @@
-import time
-
 from django.contrib.auth import logout, login
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.views.generic import CreateView
 from random import randint
 from rockPaper.forms import RegisterUserForms, LoginUserForm
@@ -151,5 +148,18 @@ def game(request):
     return render(request, 'rockPaper/game.html', context=context)
 
 
+
+def game_new(request):
+    user = UserGame.objects.filter(username=request.user.get_username())[0]
+    context = {
+        'title': 'new_game',
+        'user': user.username,
+    }
+    return render(request, 'rockPaper/game_now.html', {})
+
 def main(request):
     return render(request, 'rockPaper/main.html', {})
+
+
+
+

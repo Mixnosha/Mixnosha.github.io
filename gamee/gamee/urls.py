@@ -15,15 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from pywebio.platform.django import webio_view
 from rockPaper.views import *
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main', main ,name='main'),
+    path('main', main, name='main'),
     path('', RegisterUser.as_view(), name='register'),
     path('login', LoginUser.as_view(), name='login'),
     path('logout', logout_user, name='logout'),
     path('gamestart', game, name='game'),
     path('rock', rock, name='rock'),
+    path('new', game_new, name='game_new')
 ]
