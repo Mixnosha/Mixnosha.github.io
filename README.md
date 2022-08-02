@@ -1,7 +1,7 @@
 # Busy Beaver :beaver:
 ___
 
-[This site](http://cq22513-django-9b6ri.tw1.ru/) was developed by me as a test project and is a mini game for two people who are far from each other
+This site was developed by me as a test project and is a mini game for two people who are far from each other
 
 ___
 
